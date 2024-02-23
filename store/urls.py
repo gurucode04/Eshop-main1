@@ -8,9 +8,9 @@ from .views.checkout import CheckOut
 from .views.orders import OrderView
 from .middlewares.auth import  auth_middleware
 
-admin.site.site_header = "E-Commerce Store Admin"
-admin.site.site_title = "E-Commerce Store Admin Portal"
-admin.site.index_title = "Welcome to E-Commerce Store Researcher Portal"
+admin.site.site_header = "Online-Store Admin"
+admin.site.site_title = "Online-Store Admin Portal"
+admin.site.index_title = "Online-Store Researcher Portal"
 
 urlpatterns = [
     path('', Index.as_view(), name='homepage'),
