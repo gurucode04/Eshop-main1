@@ -15,10 +15,12 @@
                     <th>Image</th>
                     <th>Product</th>
                     <th>Date</th>
+                    <th>Phone</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
                     <th>Status</th>
+                    <th>Cancel Orders</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +31,7 @@
                     <td><img style="height: 80px;" class="rounded-circle" src="{{order.product.image.url}}" alt=""></td>
                     <td>{{order.product.name}}</td>
                     <td>{{order.date}}</td>
+                    <td>{{order.phone}}</td>
                     <td>{{order.price|currency}}</td>
                     <td>{{order.quantity}}</td>
                     <td>{{order.quantity|multiply:order.price|currency}}</td>
@@ -37,6 +40,7 @@
                     {%else%}
                     <td><small class="badge badge-warning">Pending</small></td>
                     {% endif %}
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'orderss' order.id %}">Cancel</a></td>
                 </tr>
 
                 {% endfor %}

@@ -6,11 +6,15 @@ from store.models.product import Products
 from store.models.orders import Order
 from store.middlewares.auth import auth_middleware
 
-class OrderView(View):
 
 
-    def get(self , request ):
-        customer = request.session.get('customer')
-        orders = Order.get_orders_by_customer(customer)
-        print(orders)
-        return render(request , 'orders.html'  , {'orders' : orders})
+def orderView(request ):
+    customer = request.session.get('customer')
+    orderlist = Order.get_orders_by_customer(customer)
+    print(orderlist)
+    return render(request , 'orders.html'  , {'orders' : orderlist})
+def deleteOrder(request,pk):
+    """ Cancel an order from the profile page """
+    order = Order.objects.get(id=pk)
+    order.delete()
+    return redirect('orders')
