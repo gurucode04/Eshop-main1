@@ -31,6 +31,15 @@
   {%endblock%}
   
 {% block content %}
+<div class="alert alert-none" id="alert">
+    <div class="alert-box">
+        <div class="alert-text">
+            <p id="alert-text"></p>
+        </div>
+        <a class="btn btn-sm btn-success" id="delete" href="">Yes</a>
+        <a class="btn btn-sm btn-danger" onclick="cancel()">No</a>
+    </div>
+</div>
 {% load cart %}
 {% load custom_filter %}
 
